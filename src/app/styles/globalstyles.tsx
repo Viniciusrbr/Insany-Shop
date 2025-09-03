@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
       Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    color: ${({ theme }) => theme.colors.blue};
+    color: ${({ theme }) => theme.colors.black};
     background-color: ${({ theme }) => theme.colors.blue || '#F3F7FF'};
     scroll-behavior: smooth;
   }

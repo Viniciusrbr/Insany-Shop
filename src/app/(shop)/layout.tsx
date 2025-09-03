@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import Header from '@/components/ui/header'
 import ClientLayout from '@/lib/client-layout'
 import StyledComponentsRegistry from '@/lib/styled-components-registry'
 
@@ -21,9 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${inter.className}`}>
+      <body className={inter.className}>
         <StyledComponentsRegistry>
-          <ClientLayout>{children}</ClientLayout>
+          <ClientLayout>
+            <Header />
+            {children}
+          </ClientLayout>
         </StyledComponentsRegistry>
       </body>
     </html>

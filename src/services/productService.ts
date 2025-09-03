@@ -9,6 +9,7 @@ export interface IProduct {
   category: string
   rating: number
   brand: string
+  stock: number
 }
 
 export const getAllProducts = async (): Promise<IProduct[]> => {
