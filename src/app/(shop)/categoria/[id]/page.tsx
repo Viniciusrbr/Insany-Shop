@@ -1,36 +1,35 @@
-import Image from 'next/image'
-
-import { getProductsByCategory } from '@/services/productService'
-import { formatCurrency } from '@/utils/formatCurrency'
+import { ProductsArea } from '@/components/ui/productsArea'
+import { getAllCategories } from '@/services/categoryService'
+import { getProducts } from '@/services/productService'
 
 interface CategoryPageProps {
   params: {
     id: string
   }
+  searchParams?: { page?: string }
 }
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
-  const { id } = await params
-  const category = await getProductsByCategory(id)
+export default async function CategoryPage({
+  params,
+  searchParams,
+}: CategoryPageProps) {
+  const resolvedParams = await params
+  const resolvedSearchParams = await searchParams
+  const { id } = resolvedParams
+  const page = resolvedSearchParams?.page
+    ? Number(resolvedSearchParams.page)
+    : 1
+
+  const { products, pagination } = await getProducts(6, id, page)
+  const categories = await getAllCategories()
 
   return (
-    <div>
-      <h1>Category Page</h1>
-      <div>
-        {category.map((product) => (
-          <div key={product.id}>
-            <Image
-              src={product.image}
-              alt={product.name}
-              width={300}
-              height={300}
-            />
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>{formatCurrency(product.price)}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <ProductsArea
+      products={products}
+      pagination={pagination}
+      category={id}
+      categories={categories}
+      hideCategories={true}
+    />
   )
 }

@@ -35,6 +35,12 @@ export const FilterContainer = styled.div`
   }
 `
 
+export const FilterDescription = styled.p`
+  font-weight: 400;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.gray600};
+`
+
 export const ProductTitlesContainer = styled.div`
   display: flex;
   align-items: center;

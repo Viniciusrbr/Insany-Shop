@@ -9,6 +9,7 @@ import { Pagination } from '../pagination'
 import {
   Container,
   FilterContainer,
+  FilterDescription,
   ProductDescription,
   ProductsContainer,
   ProductTitle,
@@ -20,6 +21,7 @@ interface ProductsAreaProps {
   pagination: IPagination
   category?: string
   categories?: ICategory[]
+  hideCategories?: boolean
 }
 
 export function ProductsArea({
@@ -27,6 +29,7 @@ export function ProductsArea({
   pagination,
   category,
   categories,
+  hideCategories = false,
 }: ProductsAreaProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -48,19 +51,26 @@ export function ProductsArea({
   return (
     <Container>
       <FilterContainer>
-        <select
-          name="category"
-          id="category"
-          value={category ?? ''}
-          onChange={(e) => handleCategoryChange(e.target.value)}
-        >
-          <option value="">Todas as categorias</option>
-          {categories?.map((c) => (
-            <option key={c.id} value={c.id}>
-              {c.name}
-            </option>
-          ))}
-        </select>
+        {hideCategories ? (
+          <FilterDescription>
+            Produtos /{' '}
+            {category ? categories?.find((c) => c.id === category)?.name : ''}
+          </FilterDescription>
+        ) : (
+          <select
+            name="category"
+            id="category"
+            value={category ?? ''}
+            onChange={(e) => handleCategoryChange(e.target.value)}
+          >
+            <option value="">Todas as categorias</option>
+            {categories?.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        )}
 
         <select name="sort" id="sort">
           <option value="">Organizar por</option>
