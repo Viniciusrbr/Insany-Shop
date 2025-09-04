@@ -12,9 +12,32 @@ export interface IProduct {
   stock: number
 }
 
-export const getAllProducts = async (): Promise<IProduct[]> => {
-  const response = await api.get('/products')
-  return response.data.products
+export interface IPagination {
+  currentPage: number
+  totalPages: number
+  totalProducts: number
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+}
+
+export const getProducts = async (
+  limit = 6,
+  category?: string,
+  page = 1,
+): Promise<{ products: IProduct[]; pagination: IPagination }> => {
+  const params: Record<string, unknown> = {
+    limit,
+    page,
+  }
+
+  if (category) params.category = category
+
+  const response = await api.get('/products', { params })
+
+  return {
+    products: response.data.products,
+    pagination: response.data.pagination as IPagination,
+  }
 }
 
 export const getProductById = async (id: number): Promise<IProduct> => {
