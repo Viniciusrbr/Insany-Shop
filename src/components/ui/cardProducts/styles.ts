@@ -5,6 +5,8 @@ export const CardContainer = styled.div`
   max-width: 356px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
+  border: 1px solid #dddddd;
+  border-radius: 19px;
 `
 
 export const CardContentArea = styled.div`
@@ -18,6 +20,7 @@ export const CardImage = styled(Image)`
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 19px 19px 0 0;
 `
 
 export const CardTitle = styled.div`

@@ -63,7 +63,6 @@ export const ProductDescription = styled.p`
 export const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 26px;
   grid-row-gap: 34px;
   width: 100%;
