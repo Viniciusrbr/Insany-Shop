@@ -1,14 +1,14 @@
 ### ✅ Funcionalidades Obrigatórias
 
-- [ ] **Catálogo de Produtos:**
-    - [ ] Listagem de todos os produtos vindos da API.
-    - [ ] Implementação de paginação para navegar entre os produtos.
+- [X] **Catálogo de Produtos:**
+    - [X] Listagem de todos os produtos vindos da API.
+    - [X] Implementação de paginação para navegar entre os produtos.
 - [ ] **Filtragem e Busca:**
-    - [ ] Página de categoria, que exibe apenas produtos daquela categoria específica.
+    - [X] Página de categoria, que exibe apenas produtos daquela categoria específica.
     - [ ] Campo de busca no cabeçalho que filtra os produtos por nome.
-- [ ] **Páginas Dinâmicas:**
-    - [ ] Criação de páginas de produto dinâmicas (ex: `/produto/[nome-do-produto]`).
-    - [ ] Criação de páginas de categoria dinâmicas (ex: `/categoria/[nome-da-categoria]`).
+- [X] **Páginas Dinâmicas:**
+    - [X] Criação de páginas de produto dinâmicas (ex: `/produto/[nome-do-produto]`).
+    - [X] Criação de páginas de categoria dinâmicas (ex: `/categoria/[nome-da-categoria]`).
 - [ ] **Carrinho de Compras:**
     - [ ] Adicionar e remover produtos do carrinho.
     - [ ] Persistir os itens do carrinho mesmo que a página seja recarregada.
