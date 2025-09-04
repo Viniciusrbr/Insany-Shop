@@ -35,13 +35,23 @@ export const FilterContainer = styled.div`
   }
 `
 
+export const ProductTitlesContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 50px 0 47px 0;
+`
+
 export const ProductTitle = styled.h2`
   font-weight: 700;
   font-size: 2.5rem;
-  margin-bottom: 47px;
   align-self: flex-start;
-  margin-top: 48px;
-  width: 100%;
+`
+export const ProductDescription = styled.p`
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: ${({ theme }) => theme.colors.black};
 `
 
 export const ProductsContainer = styled.div`
