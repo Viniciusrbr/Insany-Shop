@@ -25,7 +25,7 @@ export default async function Home({ searchParams }: Props) {
         category={category}
         categories={categories}
       />
-      <CategoriesArea />
+      <CategoriesArea categories={categories} />
     </>
   )
 }
