@@ -29,11 +29,12 @@ export default function Header() {
             />
             <Search size={24} color="#737380" />
           </SearchContainer>
-
-          <CartContainer>
-            <ShoppingBag color="#737380" size={24} />
-            <CartBadge>2</CartBadge>
-          </CartContainer>
+          <Link href="/carrinho">
+            <CartContainer>
+              <ShoppingBag color="#737380" size={24} />
+              <CartBadge>2</CartBadge>
+            </CartContainer>
+          </Link>
         </Nav>
       </HeaderContent>
     </HeaderContainer>
