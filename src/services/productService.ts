@@ -24,6 +24,7 @@ export const getProducts = async (
   limit = 6,
   category?: string,
   page = 1,
+  search?: string,
 ): Promise<{ products: IProduct[]; pagination: IPagination }> => {
   const params: Record<string, unknown> = {
     limit,
@@ -31,6 +32,7 @@ export const getProducts = async (
   }
 
   if (category) params.category = category
+  if (search) params.search = search
 
   const response = await api.get('/products', { params })
 

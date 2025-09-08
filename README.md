@@ -3,9 +3,9 @@
 - [X] **Catálogo de Produtos:**
     - [X] Listagem de todos os produtos vindos da API.
     - [X] Implementação de paginação para navegar entre os produtos.
-- [ ] **Filtragem e Busca:**
+- [X] **Filtragem e Busca:**
     - [X] Página de categoria, que exibe apenas produtos daquela categoria específica.
-    - [ ] Campo de busca no cabeçalho que filtra os produtos por nome.
+    - [X] Campo de busca no cabeçalho que filtra os produtos por nome.
 - [X] **Páginas Dinâmicas:**
     - [X] Criação de páginas de produto dinâmicas (ex: `/produto/[nome-do-produto]`).
     - [X] Criação de páginas de categoria dinâmicas (ex: `/categoria/[nome-da-categoria]`).

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Suspense } from 'react'
 
 import Header from '@/components/ui/header'
 import { CartContextProvider } from '@/context/CartProvider'
@@ -27,7 +28,9 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ClientLayout>
             <CartContextProvider>
-              <Header />
+              <Suspense fallback={null}>
+                <Header />
+              </Suspense>
               {children}
             </CartContextProvider>
           </ClientLayout>

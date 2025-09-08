@@ -33,6 +33,7 @@ export function ProductsArea({
 }: ProductsAreaProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const search = searchParams.get('search') || ''
 
   const handleCategoryChange = (value: string) => {
     const params = new URLSearchParams(searchParams.toString())
@@ -82,33 +83,53 @@ export function ProductsArea({
       </FilterContainer>
 
       <ProductTitlesContainer>
-        <ProductTitle>
-          {category
-            ? categories?.find((c) => c.id === category)?.name
-            : 'Todos os produtos'}
-        </ProductTitle>
+        {search ? (
+          <ProductTitle>
+            Resultados da busca para: <b>{search}</b>
+          </ProductTitle>
+        ) : (
+          <ProductTitle>
+            {category
+              ? categories?.find((c) => c.id === category)?.name
+              : 'Todos os produtos'}
+          </ProductTitle>
+        )}
 
         <ProductDescription>
-          {category
-            ? categories?.find((c) => c.id === category)?.description
-            : ''}
+          {search
+            ? ''
+            : category
+              ? categories?.find((c) => c.id === category)?.description
+              : ''}
         </ProductDescription>
       </ProductTitlesContainer>
 
       <ProductsContainer>
-        {products.map((product) => (
-          <CardProducts
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            description={product.description}
-            price={product.price}
-            image={product.image}
-            category={product.category}
-            rating={product.rating}
-            stock={product.stock}
-          />
-        ))}
+        {products.length === 0 ? (
+          <div
+            style={{
+              width: '100%',
+              textAlign: 'center',
+              color: '#888',
+            }}
+          >
+            Nenhum resultado encontrado
+          </div>
+        ) : (
+          products.map((product) => (
+            <CardProducts
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              description={product.description}
+              price={product.price}
+              image={product.image}
+              category={product.category}
+              rating={product.rating}
+              stock={product.stock}
+            />
+          ))
+        )}
       </ProductsContainer>
 
       <Pagination pagination={pagination} category={category} />

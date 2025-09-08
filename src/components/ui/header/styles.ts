@@ -26,7 +26,7 @@ export const Nav = styled.nav`
   gap: 1.5rem;
 `
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
   display: flex;
   align-items: center;
   background-color: #f3f7ff;
@@ -43,6 +43,12 @@ export const SearchInput = styled.input`
   padding-right: 0.5rem;
   color: ${({ theme }) => theme.colors.gray600};
   font-size: 0.875rem;
+`
+export const SearchButton = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 `
 
 export const CartContainer = styled.div`
