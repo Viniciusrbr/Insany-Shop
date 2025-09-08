@@ -45,7 +45,7 @@ export function Pagination({ pagination, category }: PaginationProps) {
           key={p}
           onClick={() => goToPage(p)}
           aria-current={p === pagination.currentPage ? 'page' : undefined}
-          isActive={p === pagination.currentPage}
+          $isActive={p === pagination.currentPage}
         >
           {p}
         </PaginationButton>
