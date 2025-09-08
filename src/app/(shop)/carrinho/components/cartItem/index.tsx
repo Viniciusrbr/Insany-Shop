@@ -1,5 +1,7 @@
 import { ChevronDown, ChevronUp, Trash2 } from 'lucide-react'
+import { useContext } from 'react'
 
+import { CartContext } from '@/context/CartProvider'
 import { formatCurrency } from '@/utils/formatCurrency'
 
 import {
@@ -17,43 +19,46 @@ import {
 } from './styles'
 
 interface CartItemProps {
-  id: string
+  id: number
   name: string
-  description: string
   price: number
   imageUrl: string
-  quantity?: number
-  onRemove?: () => void
-  onIncreaseQuantity?: () => void
-  onDecreaseQuantity?: () => void
+  description: string
+  quantity: number
 }
 
 export function CartItem({
+  id,
   name,
-  description,
   price,
   imageUrl,
-  quantity = 1,
-  onRemove,
-  onIncreaseQuantity,
-  onDecreaseQuantity,
+  description,
+  quantity,
 }: CartItemProps) {
+  const { removeItem, incrementItemQuantity, decrementItemQuantity } =
+    useContext(CartContext)
+
   return (
     <CartItemContainer>
       <CartItemImage src={imageUrl} alt={name} width={256} height={211} />
       <CartItemDetails>
         <CartItemHeader>
           <CartItemName>{name}</CartItemName>
-          <Trash2 size={24} color="#DE3838" onClick={onRemove} />
+          <Trash2
+            size={24}
+            color="#DE3838"
+            style={{ cursor: 'pointer' }}
+            onClick={() => removeItem(id)}
+          />
         </CartItemHeader>
         <CartItemDescription>{description}</CartItemDescription>
         <CartItemFooter>
           <CartItemQuantity>
-            <DecreaseButton onClick={onDecreaseQuantity}>
+            <DecreaseButton onClick={() => decrementItemQuantity(id)}>
               <ChevronDown />
             </DecreaseButton>
             <span>{quantity}</span>
-            <IncreaseButton onClick={onIncreaseQuantity}>
+            <IncreaseButton onClick={() => incrementItemQuantity(id)}>
               <ChevronUp />
             </IncreaseButton>
           </CartItemQuantity>

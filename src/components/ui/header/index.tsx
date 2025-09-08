@@ -1,6 +1,9 @@
 'use client'
 import { Search, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
+import { useContext } from 'react'
+
+import { CartContext } from '@/context/CartProvider'
 
 import {
   CartBadge,
@@ -14,6 +17,8 @@ import {
 } from './styles'
 
 export default function Header() {
+  const { totalItems } = useContext(CartContext)
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -32,7 +37,7 @@ export default function Header() {
           <Link href="/carrinho">
             <CartContainer>
               <ShoppingBag color="#737380" size={24} />
-              <CartBadge>2</CartBadge>
+              {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
             </CartContainer>
           </Link>
         </Nav>

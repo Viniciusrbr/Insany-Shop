@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import Header from '@/components/ui/header'
+import { CartContextProvider } from '@/context/CartProvider'
 import ClientLayout from '@/lib/client-layout'
 import StyledComponentsRegistry from '@/lib/styled-components-registry'
 
@@ -25,8 +26,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <ClientLayout>
-            <Header />
-            {children}
+            <CartContextProvider>
+              <Header />
+              {children}
+            </CartContextProvider>
           </ClientLayout>
         </StyledComponentsRegistry>
       </body>

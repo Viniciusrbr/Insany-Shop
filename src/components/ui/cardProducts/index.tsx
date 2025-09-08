@@ -1,7 +1,9 @@
 'use client'
 import { ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
+import { useContext } from 'react'
 
+import { CartContext } from '@/context/CartProvider'
 import { formatCurrency } from '@/utils/formatCurrency'
 
 import {
@@ -35,9 +37,18 @@ export function CardProducts({
   rating,
   stock,
 }: CardProps) {
+  const { addItem } = useContext(CartContext)
+
   const handleAddToCart = (event: React.MouseEvent) => {
     event.preventDefault()
-    // Lógica para adicionar ao carrinho aqui
+    addItem({
+      id,
+      name,
+      price,
+      imageUrl: image,
+      description,
+      quantity: 1,
+    })
   }
 
   return (

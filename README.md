@@ -9,10 +9,10 @@
 - [X] **Páginas Dinâmicas:**
     - [X] Criação de páginas de produto dinâmicas (ex: `/produto/[nome-do-produto]`).
     - [X] Criação de páginas de categoria dinâmicas (ex: `/categoria/[nome-da-categoria]`).
-- [ ] **Carrinho de Compras:**
-    - [ ] Adicionar e remover produtos do carrinho.
-    - [ ] Persistir os itens do carrinho mesmo que a página seja recarregada.
-    - [ ] Exibir o resumo do pedido (subtotal, frete, total) na página do carrinho.
+- [X] **Carrinho de Compras:**
+    - [X] Adicionar e remover produtos do carrinho.
+    - [X] Persistir os itens do carrinho mesmo que a página seja recarregada.
+    - [X] Exibir o resumo do pedido (subtotal, frete, total) na página do carrinho.
 
 ### 🚀 Como Rodar o Projeto
 

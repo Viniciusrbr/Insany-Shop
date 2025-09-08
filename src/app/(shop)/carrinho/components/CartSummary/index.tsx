@@ -1,3 +1,8 @@
+import { useContext } from 'react'
+
+import { CartContext } from '@/context/CartProvider'
+import { formatCurrency } from '@/utils/formatCurrency'
+
 import {
   CheckoutButton,
   Container,
@@ -10,6 +15,7 @@ import {
 } from './styles'
 
 export function CartSummary() {
+  const { totalPrice } = useContext(CartContext)
   return (
     <Container>
       <Title>RESUMO DO PEDIDO</Title>
@@ -28,7 +34,7 @@ export function CartSummary() {
 
       <TotalRow>
         <p>Total</p>
-        <p>R$ 201,00</p>
+        <p>{formatCurrency(totalPrice)}</p>
       </TotalRow>
 
       <CheckoutButton>FINALIZAR A COMPRA</CheckoutButton>
