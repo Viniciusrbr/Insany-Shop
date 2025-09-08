@@ -51,14 +51,14 @@ export default function Header() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <SearchButton type="submit">
+            <SearchButton aria-label="Buscar" type="submit">
               <Search size={24} color="#737380" />
             </SearchButton>
           </SearchContainer>
 
           <Link href="/carrinho">
             <CartContainer>
-              <ShoppingBag color="#737380" size={24} />
+              <ShoppingBag aria-label="Carrinho" color="#737380" size={24} />
               {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
             </CartContainer>
           </Link>

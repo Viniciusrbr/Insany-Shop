@@ -54,11 +54,17 @@ export function CartItem({
         <CartItemDescription>{description}</CartItemDescription>
         <CartItemFooter>
           <CartItemQuantity>
-            <DecreaseButton onClick={() => decrementItemQuantity(id)}>
+            <DecreaseButton
+              aria-label="Diminuir quantidade"
+              onClick={() => decrementItemQuantity(id)}
+            >
               <ChevronDown />
             </DecreaseButton>
             <span>{quantity}</span>
-            <IncreaseButton onClick={() => incrementItemQuantity(id)}>
+            <IncreaseButton
+              aria-label="Aumentar quantidade"
+              onClick={() => incrementItemQuantity(id)}
+            >
               <ChevronUp />
             </IncreaseButton>
           </CartItemQuantity>
