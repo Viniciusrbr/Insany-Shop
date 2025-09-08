@@ -5,6 +5,11 @@ export const CartPageContainer = styled.div`
   margin: 0 auto;
   display: flex;
   gap: 32px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 16px;
+  }
 `
 export const CartItemsSection = styled.section`
   margin: 25px 0 23px 0;

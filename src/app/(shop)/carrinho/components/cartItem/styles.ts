@@ -6,10 +6,19 @@ export const CartItemContainer = styled.li`
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.gray800};
   border-radius: 8px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const CartItemImage = styled(Image)`
   border-radius: 8px 0 0 8px;
+  @media (max-width: 768px) {
+    border-radius: 0px;
+    width: 100% !important;
+    height: auto !important;
+  }
 `
 
 export const CartItemDetails = styled.div`
@@ -39,6 +48,10 @@ export const CartItemFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-top: 16px;
+  }
 `
 export const CartItemQuantity = styled.div`
   display: flex;
