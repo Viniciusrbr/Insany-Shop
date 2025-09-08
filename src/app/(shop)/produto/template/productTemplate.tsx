@@ -1,7 +1,9 @@
 'use client'
 import { ShoppingCart, Undo2 } from 'lucide-react'
 import Image from 'next/image'
+import { useContext } from 'react'
 
+import { CartContext } from '@/context/CartProvider'
 import { formatCurrency } from '@/utils/formatCurrency'
 
 import {
@@ -32,6 +34,20 @@ interface ProductTemplateProps {
 }
 
 export function ProductTemplate({ product }: ProductTemplateProps) {
+  const { addItem } = useContext(CartContext)
+
+  const handleAddToCart = (event: React.MouseEvent) => {
+    event.preventDefault()
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      imageUrl: product.image,
+      description: product.description,
+      quantity: 1,
+    })
+  }
+
   return (
     <Container>
       <BackButton href="/">
@@ -57,7 +73,7 @@ export function ProductTemplate({ product }: ProductTemplateProps) {
           <DescriptionTitle>DESCRIÇÃO</DescriptionTitle>
           <Description>{product.description}</Description>
 
-          <AddButton>
+          <AddButton onClick={handleAddToCart}>
             <ShoppingCart size={18} />
             Adicionar
           </AddButton>
