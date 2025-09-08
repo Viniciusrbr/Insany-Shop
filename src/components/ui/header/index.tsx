@@ -55,6 +55,7 @@ export default function Header() {
               <Search size={24} color="#737380" />
             </SearchButton>
           </SearchContainer>
+
           <Link href="/carrinho">
             <CartContainer>
               <ShoppingBag color="#737380" size={24} />

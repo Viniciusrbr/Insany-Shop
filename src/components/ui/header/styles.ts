@@ -12,6 +12,10 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `
 
 export const HeaderTitle = styled.h1`
@@ -33,6 +37,9 @@ export const SearchContainer = styled.form`
   border-radius: 5px;
   padding: 0.6rem;
   width: 360px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 export const SearchInput = styled.input`
