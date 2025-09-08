@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, ReactNode, useEffect, useReducer } from 'react'
+import { toast } from 'sonner'
 
 import {
   addItemAction,
@@ -56,6 +57,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   function removeItem(itemId: Item['id']) {
     dispatch(removeItemAction(itemId))
+    toast.success('Produto removido do carrinho!')
   }
 
   function incrementItemQuantity(itemId: Item['id']) {

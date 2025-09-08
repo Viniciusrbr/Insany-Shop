@@ -2,6 +2,7 @@
 import { ShoppingCart, Undo2 } from 'lucide-react'
 import Image from 'next/image'
 import { useContext } from 'react'
+import { toast } from 'sonner'
 
 import { CartContext } from '@/context/CartProvider'
 import { formatCurrency } from '@/utils/formatCurrency'
@@ -46,6 +47,7 @@ export function ProductTemplate({ product }: ProductTemplateProps) {
       description: product.description,
       quantity: 1,
     })
+    toast.success(`${product.name} adicionado ao carrinho!`)
   }
 
   return (

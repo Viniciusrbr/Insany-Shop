@@ -2,6 +2,7 @@
 import { ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
 import { useContext } from 'react'
+import { toast } from 'sonner'
 
 import { CartContext } from '@/context/CartProvider'
 import { formatCurrency } from '@/utils/formatCurrency'
@@ -49,6 +50,7 @@ export function CardProducts({
       description,
       quantity: 1,
     })
+    toast.success(`${name} adicionado ao carrinho!`)
   }
 
   return (
